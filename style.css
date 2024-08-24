@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    background-color: rgba(33, 8, 8, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: 60px;
+    padding: 0px 20px;
+}
+.main-text{
+    font-family: fantasy;
+    font-size: 30px;
+}
+#options-el{
+    list-style: none;
+    display: flex;
+    gap: 23px;
+}
+#img-on-header{
+    height: 30px;
+}
+#small{
+    width: 25vw;
+    background-color: rgba(36, 2, 2, 0.5);
+    height: 100vh;
+}
+#big{
+    width: 75vw;
+    background-color: rgba(25, 2, 0, 0.8);
+    height: 100vh;
+}
+.main{
+    display: flex;
+}
+.headings{
+    font-size: 50px;
+    color: white;
+    padding: 20px;
+    font-family: sans-serif;
+}
+.music-cards{
+    display: flex;
+    height: 50vh;
+    overflow: auto;
+}
+.music-player {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    bottom: 0; 
+    background-color: white;
+    width: 100%;
+    
+}
+.high-idx{
+    z-index: 1000;
+}
+.buttons{
+    display: flex;
+    height: 50px;
+    background-color: rgb(236, 236, 236);
+    width: 75vw;
+    justify-content: center;
+    gap: 20px;
+}
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 25vw;
+    background-color: aqua;
+}
+.music-cards ul{
+    padding: 0 42px;
+}
+.music-cards ul li{
+    list-style-type: decimal;
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    cursor: pointer;
+    padding: 12px 0;
+    border: 1px solid white;
+    margin: 12px 0;
+    padding: 13px;
+    border-radius: 5px;
+}
+.playnow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.seekbar{
+    height: 2px;
+    width: 98%;
+    border: 2px solid black;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+}
+.circle{
+    width: 23px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: white;
+}
