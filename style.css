@@ -180,6 +180,10 @@ header{
         width: 20px;
     }
 }
+.volume{
+    display: flex;
+    flex-direction: column;
+}
 @media (max-height:600px) {
     .high-idx{
         height: 5.5vh;
