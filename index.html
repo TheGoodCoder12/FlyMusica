@@ -9,8 +9,12 @@
 <body>
     <header>
         <div><img src="./Assets/search-img.svg" id="img-on-header" alt=""></div>
+       <div class="hamburger">
+        <img src="./Assets/hamburger.svg" alt="" id="img-on-header">
+       </div>
         <div class="main-text"><img src="./Assets/logo-img.svg" id="img-on-header" alt="">FlyMusica</div>
-        <div><ul id="options-el">
+        <div class="others">
+            <ul id="options-el">
             <li>Live</li>
             <li>Music</li>
             <li>Charts</li>
@@ -26,31 +30,38 @@
     </header>
     <div class="main">
         <div id="small">
+            <div class="close">
+                <img src="./Assets/close.svg" alt="">
+            </div>
             <h1 class="headings">Your Library </h1>
             <div class="music-cards">
                 <ul>
                     
                 </ul>
+                
             </div>
         </div>
         <div id="big"></div>
     </div>
     <div class="music-player">
-        <div class="seekbar">
-            <div class="circle"></div>
-        </div>
-        <div class="name">
-           
-        </div>
-        <div class="buttons img-on-header">
-            <img src="./Assets/previous-btn.svg" alt="" class="high-idx "id="previous">
-            <img src="./Assets/play-btn.svg" alt="" class="high-idx " id="play">
-            <img src="./Assets/next-btn.svg" alt="" class="high-idx "id="next">
-        </div>
-        <div class="songtime">
+        
 
+            <div class="name">
+               
+            </div>
+            <div class="buttons img-on-header">
+                <div class="seekbar">
+                    <div class="circle"></div>
+                </div>
+                
+                    <img src="./Assets/previous-btn.svg" alt="" class="high-idx "id="previous">
+                    <img src="./Assets/play-btn.svg" alt="" class="high-idx " id="play">
+                    <img src="./Assets/next-btn.svg" alt="" class="high-idx "id="next">
+            </div>
+            <div class="songtime">
+    
+            </div>
         </div>
-    </div>
     <footer></footer>
     <script src="script.js"></script>
 </body>

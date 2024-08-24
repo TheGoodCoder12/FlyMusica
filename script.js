@@ -45,11 +45,13 @@ async function main() {
     let songUl = document.querySelector(".music-cards").getElementsByTagName("ul")[0]
 
     for (const song of songs) {
-        songUl.innerHTML = songUl.innerHTML + `<li><img src="./Assets/music.svg" alt="" id="img-on-header"> 
+        songUl.innerHTML = songUl.innerHTML + `<li>
+        <div><img src="./Assets/music.svg" alt="" id="img-on-header"></div> 
                     <div class="playnow">
                     ${song.replaceAll("%20", " ")}
-                        <span>Play Now</span>
+                    <div>
                         <img src="./Assets/play-btn.svg" alt="" id="img-on-header">
+                        </div>
                     </div>
         </li>`
     }
@@ -77,10 +79,16 @@ async function main() {
 
     }
     )
-document.querySelector(".seekbar").addEventListener("click",e => {
-    let percent=(e.offsetX/e.target.getBoundingClientRect().width)*100
-  document.querySelector(".circle").style.left=percent+"%"
-  currentSong.currentTime=(currentSong.duration*percent)/100
-})
+    document.querySelector(".seekbar").addEventListener("click", e => {
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100
+        document.querySelector(".circle").style.left = percent + "%"
+        currentSong.currentTime = (currentSong.duration * percent) / 100
+    })
+    document.querySelector(".hamburger").addEventListener("click",()=>{
+         document.getElementById("small").style.left=0
+        })
+        document.querySelector(".close").addEventListener("click",()=>{
+            document.getElementById("small").style.left="-100%"
+    })
 }
 main()
