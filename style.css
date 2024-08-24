@@ -54,6 +54,7 @@ header{
     justify-content:center;
     bottom: 0; 
     background-color: white;
+    border-radius: 10px;
     width: 100%;
     
 }
@@ -102,11 +103,19 @@ header{
     border: 2px solid black;
     border-radius: 10px;
     position: absolute;
+    cursor: pointer;
     bottom: 0;
 }
 .circle{
-    width: 23px;
-    height: 23px;
+    width: 13px;
+    height: 13px;
     border-radius: 3px;
     background-color: white;
+    position: relative;
+    bottom: 11px;
+    left: 0%;
+    transition: left 0.5s;
+}
+.buttons img{
+    cursor: pointer;
 }

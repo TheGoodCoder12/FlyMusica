@@ -1,3 +1,17 @@
+let currentSong = new Audio();
+function secondsToMinutesSeconds(seconds) {
+    if (isNaN(seconds) || seconds < 0) {
+        return "00:00";
+    }
+
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+    return `${formattedMinutes}:${formattedSeconds}`;
+}
 async function getSongs() {
     let a = await fetch("http://127.0.0.1:3000/songs/")
     let response = await a.text()
@@ -14,19 +28,59 @@ async function getSongs() {
     }
     return songs
 }
+const playMusic = (track, pause = false) => {
+    //   let audio=new Audio("/songs/"+track)
+    currentSong.src = "/songs/" + track
+    if (!pause) {
+        currentSong.play()
+        play.src = "./Assets/pause-btn.svg"
+    }
+    document.querySelector(".name").innerHTML = decodeURI(track)
+    // document.querySelector(".songtime").innerHTML="00:00/11:11"
+}
+
 async function main() {
     let songs = await getSongs()
+    playMusic(songs[0], true)
     let songUl = document.querySelector(".music-cards").getElementsByTagName("ul")[0]
-    
+
     for (const song of songs) {
         songUl.innerHTML = songUl.innerHTML + `<li><img src="./Assets/music.svg" alt="" id="img-on-header"> 
                     <div class="playnow">
-                    ${song.replaceAll("%20"," ")}
+                    ${song.replaceAll("%20", " ")}
                         <span>Play Now</span>
                         <img src="./Assets/play-btn.svg" alt="" id="img-on-header">
                     </div>
         </li>`
     }
-    
+    Array.from(document.querySelector(".music-cards").getElementsByTagName("li")).forEach(e => {
+        e.addEventListener("click", element => {
+            playMusic(e.querySelector(".playnow").innerHTML.split('\n')[1].trim())
+        }
+        )
+
+    });
+    play.addEventListener("click", () => {
+        if (currentSong.paused) {
+            currentSong.play()
+            play.src = "./Assets/pause-btn.svg"
+        }
+        else {
+            currentSong.pause()
+            play.src = "./Assets/play-btn.svg"
+        }
+    }
+    )
+    currentSong.addEventListener("timeupdate", () => {
+        document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}/${secondsToMinutesSeconds(currentSong.duration)}`
+        document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
+
+    }
+    )
+document.querySelector(".seekbar").addEventListener("click",e => {
+    let percent=(e.offsetX/e.target.getBoundingClientRect().width)*100
+  document.querySelector(".circle").style.left=percent+"%"
+  currentSong.currentTime=(currentSong.duration*percent)/100
+})
 }
 main()
